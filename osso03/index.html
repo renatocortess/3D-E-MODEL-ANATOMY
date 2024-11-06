@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposição Virtual Interativa - Anatomia Facial</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+            background-color: black; /* Fundo preto */
+            color: white; /* Cor do texto branca */
+        }
+        model-viewer {
+            width: 100%;
+            max-width: 900px;
+            height: 900px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        /* Novo estilo para exibir os textos abaixo dos botões */
+        .info-text {
+            margin-top: 20px;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+</head>
+<body>
+    <h1>Tecidos da Face (Músculos e Tendões)</h1>
+    <p>Os músculos e tendões da face facilitam a expressão facial, a fala, e a mastigação. Eles formam uma rede que permite grande variedade de movimentos sutis e complexos.</p>
+    
+    <!-- Modelo 3D -->
+    <model-viewer id="meuModelo" src="scene.gltf" alt="Modelo 3D de uma glândula tireoide" shadow-intensity="1" camera-controls auto-rotate ar>
+       
+    </model-viewer>
+
+    <!-- Botões de interação -->
+    <div class="button-container">
+        <button id="toggleRotate">Pausar Rotação</button>
+        <button onclick="window.location.href='/osso02/index.html'">Voltar para o Crânio feminino</button>
+        <button onclick="window.location.href='/osso04/index.html'">Conheça a Mandíbula</button>
+        <button onclick="showBoneInfo('info1')">Curiosidades sobre os Tecidos da Face</button>
+        <button onclick="showBoneInfo('info2')">Ultimas descobertas</button>
+    </div>
+
+    <!-- Textos de informações -->
+    <div id="info1" class="info-text">
+        <h1>Tecidos da Face (Músculos e Tendões)</h1>
+        <p>1- O músculo orbicular dos olhos é um dos mais ativos, sendo responsável por movimentos como piscar e fechar os olhos.</p>
+        <p>2- Existem mais de 40 músculos faciais que colaboram para as expressões, desde o sorriso até expressões de surpresa ou medo.</p>
+        <p>3- A movimentação facial é tão precisa que revela emoções sutis, um fenômeno explorado em psicologia.</p>
+        <p>4- Tendões faciais são mais finos, pois a face requer delicadeza para a expressão.</p>
+        <p>5- Os músculos responsáveis pela fala são extremamente complexos e refinados, permitindo diversos sons.</p>
+    </div>
+
+    <div id="info2" class="info-text">
+        <h1>Ultimas descobertas</h1>
+        <p>Estudos dos músculos faciais revelam a importância da diversidade das expressões faciais humanas e como essas estruturas podem se adaptar para responder a estímulos emocionais. Recentemente, o avanço no estudo dos tendões faciais tem contribuído para novas técnicas em procedimentos estéticos e reparadores, principalmente visando preservar a funcionalidade muscular ao longo do tempo.</p>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <script>
+        const modelViewer = document.getElementById("meuModelo");
+        const toggleButton = document.getElementById("toggleRotate");
+
+        // Alternar rotação automática
+        toggleButton.addEventListener("click", () => {
+            if (modelViewer.autoRotate) {
+                modelViewer.autoRotate = false;
+                toggleButton.textContent = "Retomar Rotação";
+            } else {
+                modelViewer.autoRotate = true;
+                toggleButton.textContent = "Pausar Rotação";
+            }
+        });
+
+        // Função para mostrar informações específicas de cada osso
+        function showBoneInfo(infoId) {
+            // Esconde todos os textos
+            const allInfoTexts = document.querySelectorAll('.info-text');
+            allInfoTexts.forEach(text => text.style.display = 'none');
+
+            // Exibe o texto específico
+            const infoText = document.getElementById(infoId);
+            if (infoText) {
+                infoText.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

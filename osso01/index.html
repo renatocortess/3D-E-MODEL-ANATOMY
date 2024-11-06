@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposição Virtual Interativa - Anatomia Facial</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+            background-color: black; /* Fundo preto */
+            color: white; /* Cor do texto branca */
+        }
+        model-viewer {
+            width: 100%;
+            max-width: 900px;
+            height: 900px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        /* Novo estilo para exibir os textos abaixo dos botões */
+        .info-text {
+            margin-top: 20px;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+</head>
+<body>
+    <h1>Crânio Mascilino</h1>
+    <p>Funcionalidade: O crânio masculino fornece proteção ao cérebro e forma a estrutura da cabeça. Ele é responsável pela proteção de órgãos sensíveis, além de ser o ponto de fixação de músculos importantes para movimentos e expressão facial.</p>
+    
+    <!-- Modelo 3D -->
+    <model-viewer id="meuModelo" src="scene.gltf" alt="Modelo 3D de uma glândula tireoide" shadow-intensity="1" camera-controls auto-rotate ar>
+       <!-- Hotspots interativos para exibir informações -->
+       <button slot="hotspot-handles" data-position="0.0 0.3 0.1" data-normal="0 0 1" data-visibility-attribute="visible" data-info="Porta-agulhas: Usado para segurar uma agulha circular, com a qual o tecido pode ser fundido mesmo nas profundezas do local da operação.">1. 🔍</button>
+       <!-- Adicione os demais hotspots aqui -->
+    </model-viewer>
+
+    <!-- Botões de interação -->
+    <div class="button-container">
+        <button id="toggleRotate">Pausar Rotação</button>
+        <button onclick="window.location.href='/osso05/index.html'">Conheça o Globo ocular</button>
+        <button onclick="window.location.href='/osso02/index.html'">Conheça o Crânio Feminino</button>
+        <button onclick="showBoneInfo('info1')">Curiosidade sobre o crânio masculino</button>
+        <button onclick="showBoneInfo('info2')">Ultinas descobertas</button>
+    </div>
+
+    <!-- Textos de informações -->
+    <div id="info1" class="info-text">
+        <h1>Estrutura e Proteção do Crânio Masculino</h1>
+        <p>1- Em média, o crânio masculino é mais espesso e pesado do que o feminino, devido à maior densidade óssea.</p>
+        <p>2- A mandíbula tende a ser mais quadrada nos homens, o que, junto com outras diferenças estruturais, ajuda a definir características faciais masculinas.</p>
+        <p>3- Os crânios masculinos costumam ser mais robustos, com áreas como o arco superciliar (sobrancelhas) mais pronunciadas.</p>
+        <p>4- Estudos forenses mostram que certos detalhes cranianos podem ajudar a determinar o sexo em esqueletos, mesmo com características mínimas.</p>
+        <p>5- As variações no formato e tamanho craniano em diferentes populações estão ligadas a adaptações ambientais.</p>
+    </div>
+
+    <div id="info2" class="info-text">
+        <h1>As descobertas mais recentes sobre o Crânio Masculino:</h1>
+        <p>Crânio Masculino e Feminino: Estudos mostram que as diferenças estruturais no crânio entre homens e mulheres tendem a ser menos marcantes com o tempo, especialmente em algumas populações como as da Espanha e Portugal. Pesquisadores acreditam que fatores como nutrição e mudanças ambientais podem estar contribuindo para a aproximação dessas características. A forma craniana também está fortemente influenciada por genética, como indicam novos estudos que exploram variantes genéticas específicas que moldam a base do crânio</p>
+       
+    </div>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <script>
+        const modelViewer = document.getElementById("meuModelo");
+        const toggleButton = document.getElementById("toggleRotate");
+
+        // Alternar rotação automática
+        toggleButton.addEventListener("click", () => {
+            if (modelViewer.autoRotate) {
+                modelViewer.autoRotate = false;
+                toggleButton.textContent = "Retomar Rotação";
+            } else {
+                modelViewer.autoRotate = true;
+                toggleButton.textContent = "Pausar Rotação";
+            }
+        });
+
+        // Função para mostrar informações específicas de cada osso
+        function showBoneInfo(infoId) {
+            // Esconde todos os textos
+            const allInfoTexts = document.querySelectorAll('.info-text');
+            allInfoTexts.forEach(text => text.style.display = 'none');
+
+            // Exibe o texto específico
+            const infoText = document.getElementById(infoId);
+            if (infoText) {
+                infoText.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

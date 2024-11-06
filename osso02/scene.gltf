@@ -1,0 +1,272 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        71.77935791015625,
+        -7.777766704559326,
+        245.18067932128906
+      ],
+      "min": [
+        52.59278106689453,
+        -33.27350616455078,
+        220.8408966064453
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 786384,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.9999409317970276,
+        0.9999951124191284,
+        0.9998234510421753
+      ],
+      "min": [
+        -0.999988853931427,
+        -0.9999900460243225,
+        -0.999997079372406
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 361515,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1572768,
+      "componentType": 5126,
+      "count": 12047,
+      "max": [
+        71.77078247070313,
+        -7.855550765991211,
+        245.1712646484375
+      ],
+      "min": [
+        52.605533599853516,
+        -32.91368103027344,
+        220.85690307617188
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1717332,
+      "componentType": 5126,
+      "count": 12047,
+      "max": [
+        0.9999004006385803,
+        0.9996566772460938,
+        0.999786913394928
+      ],
+      "min": [
+        -0.9996872544288635,
+        -0.9999557733535767,
+        -0.9999148845672607
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 1446060,
+      "componentType": 5125,
+      "count": 22317,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1861896,
+      "componentType": 5126,
+      "count": 11375,
+      "max": [
+        70.13401794433594,
+        -19.883136749267578,
+        228.33450317382813
+      ],
+      "min": [
+        54.189517974853516,
+        -30.93360137939453,
+        215.36172485351563
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1998396,
+      "componentType": 5126,
+      "count": 11375,
+      "max": [
+        0.9999915957450867,
+        0.9998935461044312,
+        0.9996549487113953
+      ],
+      "min": [
+        -0.9994927644729614,
+        -0.9997968673706055,
+        -0.9996819496154785
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 1535328,
+      "componentType": 5125,
+      "count": 66186,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "hangar79 (https://sketchfab.com/hangar79)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/european-female-skull-scan-35af29c7d55645b094188dd07c0e441f",
+      "title": "European Female skull scan"
+    },
+    "generator": "Sketchfab-12.63.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1800072,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2134896,
+      "byteOffset": 1800072,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 3934968,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "material_0",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5565929878048781,
+          0.5565929878048781,
+          0.5565929878048781,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6
+          },
+          "indices": 8,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.9999457001686096,
+        0.01042102836072445,
+        2.313933125269607e-18,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        -0.01042102836072445,
+        0.9999457001686096,
+        2.2203254794042274e-16,
+        0.0,
+        2.4030394554138184,
+        -0.6355389952659607,
+        -1.4111800511828158e-16,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        3,
+        4
+      ],
+      "name": "Female Skull OBJ.OBJ.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_2"
+    },
+    {
+      "mesh": 1,
+      "name": "Object_3"
+    },
+    {
+      "mesh": 2,
+      "name": "Object_4"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

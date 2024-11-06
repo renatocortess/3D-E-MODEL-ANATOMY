@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposição Virtual Interativa - Anatomia Facial</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+            background-color: black; /* Fundo preto */
+            color: white; /* Cor do texto branca */
+        }
+        model-viewer {
+            width: 100%;
+            max-width: 900px;
+            height: 900px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        /* Novo estilo para exibir os textos abaixo dos botões */
+        .info-text {
+            margin-top: 20px;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+</head>
+<body>
+    <h1>O Globo Ocular: Janela para o Mundo</h1>
+    <p>O globo ocular é o órgão responsável pela visão, capturando imagens e enviando sinais ao cérebro para que possamos interpretar o que vemos.</p>
+    
+    <!-- Modelo 3D -->
+    <model-viewer id="meuModelo" src="scene.gltf" alt="Modelo 3D de uma glândula tireoide" shadow-intensity="1" camera-controls auto-rotate ar>
+       
+    </model-viewer>
+
+    <!-- Botões de interação -->
+    <div class="button-container">
+        <button id="toggleRotate">Pausar Rotação</button>
+        <button onclick="window.location.href='/osso04/index.html'">Voltar para a Mnadíbula</button>
+        <button onclick="window.location.href='/osso01/index.html'">Ir para o Crânio Masculino</button>
+        <button onclick="showBoneInfo('info1')">Curiosidades sobre o Globo Ocular</button>
+        <button onclick="showBoneInfo('info2')">Ultimas novidades</button>
+    </div>
+
+    <!-- Textos de informações -->
+    <div id="info1" class="info-text">
+        <h1>Estrutura Complexa da Visão e Curiosidades Visuais.</h1>
+        <p>1- A retina possui células fotorreceptoras conhecidas como cones e bastonetes, responsáveis pela percepção de cores e pela visão em baixa luminosidade.</p>
+        <p>2- Os olhos humanos são capazes de distinguir cerca de 10 milhões de cores diferentes.</p>
+        <p>3- Os olhos podem "capturar" imagens em cerca de 13 milissegundos.</p>
+        <p>4- O globo ocular é o órgão mais rápido do corpo, capaz de realizar movimentos a cada 30 milissegundos.</p>
+        <p>5- A retina é composta por 130 milhões de células chamadas cones e bastonetes, responsáveis pela visão de cores e de baixa luz.</p>
+    </div>
+
+    <div id="info2" class="info-text">
+        <h1>Ultimas informações sobre o Globo Ocular</h1>
+        <p>O olho humano continua sendo uma área de grande interesse. Recentemente, avanços na biologia ocular destacaram como as estruturas oculares interagem de forma precisa para permitir uma visão detalhada e como essas características podem variar em diferentes etnias. Além disso, investigações sobre a saúde ocular mostram que variações genéticas podem influenciar tanto a cor quanto a acuidade visual em diferentes populações.</p>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <script>
+        const modelViewer = document.getElementById("meuModelo");
+        const toggleButton = document.getElementById("toggleRotate");
+
+        // Alternar rotação automática
+        toggleButton.addEventListener("click", () => {
+            if (modelViewer.autoRotate) {
+                modelViewer.autoRotate = false;
+                toggleButton.textContent = "Retomar Rotação";
+            } else {
+                modelViewer.autoRotate = true;
+                toggleButton.textContent = "Pausar Rotação";
+            }
+        });
+
+        // Função para mostrar informações específicas de cada osso
+        function showBoneInfo(infoId) {
+            // Esconde todos os textos
+            const allInfoTexts = document.querySelectorAll('.info-text');
+            allInfoTexts.forEach(text => text.style.display = 'none');
+
+            // Exibe o texto específico
+            const infoText = document.getElementById(infoId);
+            if (infoText) {
+                infoText.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
